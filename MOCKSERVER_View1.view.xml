@@ -1,0 +1,33 @@
+<mvc:View controllerName="ns.MOCKSERVER_MODULE.controller.MOCKSERVER_View1" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          displayBlock="true" 
+          xmlns="sap.m"
+          id="overview">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+				<List id="list" items="{ddata>/Meetups}" noDataText="{i18n>noDataText}">
+					<items>
+						<ObjectListItem
+							number="{
+								path: 'ddata>EventDate',
+								type: 'sap.ui.model.type.DateTime',
+								formatOptions: {
+									style: 'medium'
+								}
+							}"
+							title="{ddata>MeetupID} x {ddata>Title}"
+                            type="Navigation"
+                            press="onPress">
+                            <attributes>
+								<ObjectAttribute text="{ddata>Description}"/>
+							</attributes>
+						</ObjectListItem>
+					</items>
+				</List>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
